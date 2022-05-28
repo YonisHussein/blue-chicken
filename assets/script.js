@@ -14,7 +14,7 @@ var currentHour = moment().format("HH");
         
         });
 
-    function Agenda() {
+    function agenda() {
         var timeBlock = $(".time-block");
         for (let i = 0; i < timeBlock.length; i++) {
             var descElement = timeBlock[x].children[1];
@@ -27,30 +27,35 @@ var currentHour = moment().format("HH");
 
             function taskLegend () {
                 if (schedule < currentHour) {
-                    ${timeBlock[i]}.addClass("past");
+                    $(this).addClass("past");
+                    $(this).removeClass.removeClass("present");
+                    $(this).removeClass.removeClass("future");
                 }
                 else if (schedule === currentHour) {
-                    $(timeBlock[i]).removeClass("past");
-                    $(timeBlock[i]).addClass("present");
+                    $(this).removeClass("past");
+                    $(this).addClass("present");
+                    $(this).addClass("future");
                 }
                 else {
-                    $(timeBlock[i]).removeClass("past");
-                    $(timeBlock[i]).removeClass("present");
-                    $(timeBlock[i]).removeClass("future");
+                    $(this).removeClass("past");
+                    $(this).removeClass("present");
+                    $(this).removeClass("future");
                 }
             }
         taskLegend();
         }
     }
 
+    if (currentHour === 24) {
+        localStorage.clear();
+    }
+
     
 
-
-
-
-}
+    }
+    appendCurrentDate();
+    agenda();
 
 
 })
 
-appendCurrentDate();
