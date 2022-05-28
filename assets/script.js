@@ -17,32 +17,32 @@ var currentHour = moment().format("HH");
     function agenda() {
         var timeBlock = $(".time-block");
         for (let i = 0; i < timeBlock.length; i++) {
-            var descElement = timeBlock[x].children[1];
-            stringElement = timeBlock[x].id.toStringElement();
+            var descElement = timeBlock[i].children[1];
+            stringElement = timeBlock[i].id.toStringElement();
             $(descElement).val(localStorage.getItem(stringElement));
         }
 
         for (let i = 0; i < timeBlock.length; i++) {
             schedule = timeBlock [i].id;
 
-            function taskLegend () {
+            function currentPlace () {
                 if (schedule < currentHour) {
-                    $(this).addClass("past");
-                    $(this).removeClass.removeClass("present");
-                    $(this).removeClass.removeClass("future");
+                    $(timeBlock).addClass("past");
+                    $(timeBlock).removeClass.removeClass("present");
+                    $(timeBlock).removeClass.removeClass("future");
                 }
                 else if (schedule === currentHour) {
-                    $(this).removeClass("past");
-                    $(this).addClass("present");
-                    $(this).addClass("future");
+                    $(timeBlock).removeClass("past");
+                    $(timeBlock).addClass("present");
+                    $(timeBlock).addClass("future");
                 }
                 else {
-                    $(this).removeClass("past");
-                    $(this).removeClass("present");
-                    $(this).removeClass("future");
+                    $(timeBlock).removeClass("past");
+                    $(timeBlock).removeClass("present");
+                    $(timeBlock).removeClass("future");
                 }
             }
-        taskLegend();
+        currentPlace();
         }
     }
 
